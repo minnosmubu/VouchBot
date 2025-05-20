@@ -1,0 +1,180 @@
+{
+  "vouch": {
+    "command": {
+      "name": "vouch",
+      "description": "Bir kullanıcı için değerlendirme bırak",
+      "options": {
+        "user": {
+          "name": "kullanici",
+          "description": "Değerlendirme yapılacak kullanıcı"
+        },
+        "stars": {
+          "name": "begeni",
+          "description": "Kaç yıldız vereceğiniz (1-5)"
+        },
+        "comment": {
+          "name": "yorum",
+          "description": "Kullanıcı hakkında yorumunuz"
+        },
+        "media": {
+          "name": "media",
+          "description": "İsteğe bağlı: Kanıt olarak bir resim veya video yükleyin"
+        }
+      }
+    },
+    "errors": {
+      "self_vouch": "Kendinize değerlendirme bırakamazsınız!",
+      "generic_error": "Bir hata oluştu."
+    },
+    "success": "✅ Değerlendirme başarıyla gönderildi: {username}!",
+    "embed": {
+      "title": "{username} için Değerlendirme",
+      "fields": {
+        "rating": "Değerlendirme",
+        "by": "Değerlendiren",
+        "comment": "Yorum",
+        "attachment": "Ek Dosya"
+      },
+      "footer": "Değerlendirme ID: {id}"
+    }
+  },
+  "viewvouches": {
+    "command": {
+      "name": "degerlendirmeler",
+      "description": "Bir kullanıcının değerlendirmelerini görüntüle",
+      "options": {
+        "user": {
+          "name": "kullanici",
+          "description": "Değerlendirmeleri görüntülenecek kullanıcı"
+        }
+      }
+    },
+    "noVouches": {
+      "title": "Değerlendirme Bulunamadı",
+      "description": "{username} için henüz değerlendirme yok."
+    },
+    "embed": {
+      "title": "{username} için Değerlendirmeler",
+      "fields": {
+        "totalVouches": "Toplam Değerlendirmeler",
+        "averageRating": "Ortalama Puan",
+        "vouch": "Değerlendirme #{number} - {stars}",
+        "by": "Değerlendiren: {username}",
+        "on": "Tarih: {date}"
+      },
+      "footer": "Sayfa {current}/{total} • Toplam Değerlendirme: {count}"
+    },
+    "buttons": {
+      "viewAll": "Tüm Değerlendirmeleri Görüntüle",
+      "first": "⏮️ İlk",
+      "previous": "◀️ Önceki",
+      "next": "Sonraki ▶️",
+      "last": "Son ⏭️"
+    }
+  },
+  "stats": {
+    "command": {
+      "name": "istatistikler",
+      "description": "Sunucunun değerlendirme istatistiklerini görüntüle"
+    },
+    "noVouches": {
+      "title": "Değerlendirme Bulunamadı",
+      "description": "Bu sunucu için henüz değerlendirme kaydedilmemiş."
+    },
+    "embed": {
+      "title": "📊 {guildName} için Değerlendirme İstatistikleri",
+      "fields": {
+        "totalVouches": "Toplam Değerlendirmeler",
+        "usersReceiving": "Değerlendirme Alan Kullanıcılar",
+        "usersGiving": "Değerlendirme Yapan Kullanıcılar",
+        "averageRating": "Ortalama Puan",
+        "mostRecent": "En Son Değerlendirme",
+        "ratingDistribution": "Puan Dağılımı",
+        "mostVouched": "En Çok Değerlendirilen Kullanıcı",
+        "mostActive": "En Aktif Değerlendirici"
+      },
+      "footer": "Son güncelleme"
+    }
+  },
+  "deletevouch": {
+    "command": {
+      "name": "degerlendirmesil",
+      "description": "Bir değerlendirmeyi sil (Sadece Yönetici)",
+      "options": {
+        "id": {
+          "name": "id",
+          "description": "Silinecek değerlendirmenin ID'si"
+        }
+      }
+    },
+    "errors": {
+      "permission": "Bu komutu kullanma izniniz yok!",
+      "notFound": "ID'si {id} olan değerlendirme bulunamadı"
+    },
+    "success": {
+      "title": "✅ Değerlendirme Silindi",
+      "description": "ID'si {id} olan değerlendirme başarıyla silindi",
+      "fields": {
+        "forUser": "Kullanıcı",
+        "byUser": "Değerlendiren",
+        "rating": "Puan",
+        "comment": "Yorum",
+        "media": "Medya"
+      },
+      "footer": "{username} tarafından silindi"
+    }
+  },
+  "backup": {
+    "command": {
+      "name": "yedekle",
+      "description": "Değerlendirme veritabanını yedekle (Sadece Bot Sahibi)"
+    },
+    "errors": {
+      "permission": "Sadece bot sahibi bu komutu kullanabilir!",
+      "generic": "Yedekleme oluşturulurken bir hata oluştu: {error}"
+    },
+    "success": {
+      "title": "✅ Yedek Oluşturuldu",
+      "description": "Değerlendirme veritabanının yedeği başarıyla oluşturuldu.",
+      "fields": {
+        "totalVouches": "Toplam Değerlendirmeler",
+        "timestamp": "Zaman Damgası"
+      }
+    }
+  },
+  "restore": {
+    "command": {
+      "name": "geriyukle",
+      "description": "Bir yedekten değerlendirmeleri geri yükle (Sadece Bot Sahibi)",
+      "options": {
+        "backup": {
+          "name": "yedek",
+          "description": "Geri yüklenecek yedek dosyası"
+        }
+      }
+    },
+    "errors": {
+      "permission": "Sadece bot sahibi bu komutu kullanabilir!",
+      "invalidFile": "Yedek dosyası bir JSON dosyası olmalıdır!",
+      "invalidBackup": "Yedek dosyası geçerli değerlendirme verisi içermiyor!",
+      "generic": "Yedek geri yüklenirken bir hata oluştu: {error}"
+    },
+    "success": {
+      "title": "✅ Yedek Geri Yüklendi",
+      "description": "Değerlendirme veritabanı başarıyla geri yüklendi.",
+      "fields": {
+        "totalVouches": "Toplam Değerlendirmeler",
+        "backupFile": "Yedek Dosyası",
+        "autoBackup": "Otomatik Yedek"
+      }
+    }
+  },
+  "common": {
+    "error": "❌ Hata",
+    "notFound": "Bulunamadı",
+    "accessDenied": "❌ Erişim Reddedildi"
+  },
+  "greet": {
+    "welcome": "Selamlar {username}, seninle {memberCount} kişiyiz! \nHesabın {creationDate} tarihinde {creationRelative} oluşturulmuş, sunucumuza {joinDate} önce giriş yaptın! \nSatın Alma İşlemleri İçin #ticket"
+  }
+}
